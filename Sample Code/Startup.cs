@@ -33,7 +33,6 @@ namespace CloudRun_Bug
                     //handle HTTP POST of Cloud Event
                     logger.LogInformation("Handling HTTP GET");
                     
-                    //list project Cloud Storage buckets to invoke auth
                     string projectId = "YOUR-PROJECT-ID"; //set unique projetID here
                     string bucketName = "sample-code-test-bucket";
 
