@@ -8,6 +8,10 @@ Repo to document &amp; reproduce GCP web console admin credential / environment 
 
 Install instructions
 
+## Notes
+
+The errors were reproduced successfully when directly settings the environment variables without Secret Manager resulting in the same YAML outputs and error messages
+
 ```bash
 # install/setup commands
 ```
