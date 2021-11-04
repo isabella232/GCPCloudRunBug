@@ -45,7 +45,7 @@ This config incorrectly formats the G_A_C environment variable key value as a "m
 
 The runtime error, depending on the length of the keys in the {object} string is either a "path too long" or "path not found" exception
 
-The exception handling for this error sprays the plaintext contents of the json G_A_C authentication {object} into the logs
+The exception handling for this error sprays the plaintext contents of the json G_A_C authentication {object} into the logs including authentication keys
 
 ![Bugged Secrets Error Msg](https://github.com/stirista/GCPCloudRunBug/blob/main/images/CloudRun_Bugged_Error.png)
 
