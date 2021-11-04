@@ -16,9 +16,9 @@ Install instructions
 '/app{object}'
 ```
 
-## Bugged Config - Secret Manager Env Var Config No Quote
+## Bugged Config
 
-### Screenshot here - Secret Manager Env Var config, No Quote
+###### Screenshot here - Secret Manager Env Var config, No Quote
 
 This config incorrectly formats the G_A_C environment variable key value as a "mounted volume" path string adding the container app root '/app' to the beginning of the service account's json auth {object} string so that the value ultimately becomes '/app{object}' which throws a runtime error anytime a GCP library attempts to authenticate
 
