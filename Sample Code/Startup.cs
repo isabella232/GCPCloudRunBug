@@ -34,7 +34,7 @@ namespace CloudRun_Bug
                     logger.LogInformation("Handling HTTP GET");
                     
                     //list project Cloud Storage buckets to invoke auth
-                    string projectId = "file-builder"; //set unique projetID here
+                    string projectId = "YOUR-PROJECT-ID"; //set unique projetID here
                     string bucketName = "sample-code-test-bucket";
 
                     //create new bucket
@@ -52,7 +52,7 @@ namespace CloudRun_Bug
 
                     //delete new bucket
                     storage.DeleteBucket(bucketName);
-                    logger.LogInformation("New Bucket: " + bucketName + "deleted");
+                    logger.LogInformation("New Bucket: " + bucketName + " deleted");
 
                     await context.Response.WriteAsync("Bucket create/delete test complete");
                 });
