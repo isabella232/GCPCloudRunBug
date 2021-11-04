@@ -20,7 +20,7 @@ Install instructions
 
 ###### Screenshot here - Secret Manager Env Var config, No Quote
 
-![](./images/CloudRun_Bugged.pngCloudRun_Bugged.pngimage.png)
+![Bugged Secrets Setup](https://github.com/stirista/GCPCloudRunBug/blob/main/images/CloudRun_Bugged.png))
 
 This config incorrectly formats the G_A_C environment variable key value as a "mounted volume" path string adding the container app root '/app' to the beginning of the service account's json auth {object} string so that the value ultimately becomes '/app{object}' which throws a runtime error anytime a GCP library attempts to authenticate
 
