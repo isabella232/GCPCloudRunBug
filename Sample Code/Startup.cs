@@ -34,16 +34,27 @@ namespace CloudRun_Bug
                     logger.LogInformation("Handling HTTP GET");
                     
                     //list project Cloud Storage buckets to invoke auth
-                    string projectId = "*projectID*"; //set unique projetID here
+                    string projectId = "file-builder"; //set unique projetID here
+                    string bucketName = "sample-code-test-bucket";
+
+                    //create new bucket
                     var storage = StorageClient.Create();
                     var buckets = storage.ListBuckets(projectId);
+                    var newbucket = storage.CreateBucket(projectId, bucketName);
+                    logger.LogInformation("New Bucket: " + bucketName + "created");
+
+                    //list all buckets
                     logger.LogInformation("Buckets:");
                     foreach (var bucket in buckets)
                     {
                         logger.LogInformation(bucket.Name);
                     }
 
-                    await context.Response.WriteAsync(buckets.ToString());
+                    //delete new bucket
+                    storage.DeleteBucket(bucketName);
+                    logger.LogInformation("New Bucket: " + bucketName + "deleted");
+
+                    await context.Response.WriteAsync("Bucket create/delete test complete");
                 });
             });
         }
