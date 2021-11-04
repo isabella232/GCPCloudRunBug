@@ -21,13 +21,6 @@ Install instructions
 ###### Screenshot here - Secret Manager Env Var config, No Quote
 
 ![Bugged Secrets Setup](https://github.com/stirista/GCPCloudRunBug/blob/main/images/CloudRun_Bugged.png))
-
-This config incorrectly formats the G_A_C environment variable key value as a "mounted volume" path string adding the container app root '/app/' to the beginning of the service account's json auth {object} string so that the value ultimately becomes '/app/{object}' which throws a runtime error anytime a GCP library attempts to authenticate
-
-The runtime error, depending on the length of the keys in the {object} string is either a "path too long" or "path not found" exception
-
-The exception handling for this error sprays the plaintext contents of the json G_A_C authentication {object} into the logs
-
 #### Bugged Config YAML Output
 
 ```yaml
@@ -47,6 +40,14 @@ The exception handling for this error sprays the plaintext contents of the json 
             cpu: 1000m
             memory: 512Mi
 ```
+
+This config incorrectly formats the G_A_C environment variable key value as a "mounted volume" path string adding the container app root '/app/' to the beginning of the service account's json auth {object} string so that the value ultimately becomes '/app/{object}' which throws a runtime error anytime a GCP library attempts to authenticate
+
+The runtime error, depending on the length of the keys in the {object} string is either a "path too long" or "path not found" exception
+
+The exception handling for this error sprays the plaintext contents of the json G_A_C authentication {object} into the logs
+
+![Bugged Secrets Error Msg](https://github.com/stirista/GCPCloudRunBug/blob/main/images/CloudRun_Bugged_Error.png)
 
 ## Working Config #1
 
