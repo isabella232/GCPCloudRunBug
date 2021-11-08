@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Google.Cloud.Storage.V1;
-
 namespace CloudRun_Bug
 {
    public class Startup
@@ -36,6 +35,9 @@ namespace CloudRun_Bug
                     string projectId = "YOUR-PROJECT-ID"; //set unique projetID here
                     string bucketName = "sample-code-test-bucket";
 
+                    //If Compute Engine default account with basic security is selected, GAC may not be invoked
+                    
+                    //bucket create/delete to invoke GAC
                     //create new bucket
                     var storage = StorageClient.Create();
                     var buckets = storage.ListBuckets(projectId);
